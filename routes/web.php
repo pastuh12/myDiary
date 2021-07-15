@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/section', [])
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/section', [SectionController::class, 'dailyThoughts']);
+Route::get('/section/ideas', [SectionController::class, 'ideas']);
+Route::get('/section/goals', [SectionController::class, 'goals']);
+
